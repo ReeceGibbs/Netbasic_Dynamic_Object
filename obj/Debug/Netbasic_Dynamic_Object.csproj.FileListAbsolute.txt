@@ -1,0 +1,10 @@
+C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\bin\Debug\Netbasic_Dynamic_Object.exe.config
+C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\bin\Debug\Netbasic_Dynamic_Object.exe
+C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\bin\Debug\Netbasic_Dynamic_Object.pdb
+C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\obj\Debug\Netbasic_Dynamic_Object.csprojAssemblyReference.cache
+C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\obj\Debug\Netbasic_Dynamic_Object.csproj.CoreCompileInputs.cache
+C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\obj\Debug\Netbasic_Dynamic_Object.exe
+C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\obj\Debug\Netbasic_Dynamic_Object.pdb
+C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\bin\Debug\Newtonsoft.Json.dll
+C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\bin\Debug\Newtonsoft.Json.xml
+C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\obj\Debug\Netbasic_Dynamic_Object.csproj.CopyComplete
