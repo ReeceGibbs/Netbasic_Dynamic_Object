@@ -517,5 +517,53 @@ namespace Netbasic_Dynamic_Object
             //since the element was set successfully, we return true
             return true;
         }
+
+        //a public method that can be called to append an element to an NDO_ARRAY
+        public static bool NDOArrayAppendItem(Netbasic_Dynamic_Object ndoHandle, object value)
+        {
+
+            //we begin a try/catch block
+            try
+            {
+
+                //we append a key value pair to the NDO_ARRAY with the value passed and the ndo type of that value
+                ndoHandle.DynamicObject.Add(new KeyValuePair<string, object>(GetNDODataType(value), value));
+            }
+            catch (Exception e)
+            {
+
+                //if there is an issue for whatever reason, we want to display an error message and return false
+                Console.WriteLine(e.Message);
+
+                return false;
+            }
+
+            //we return true because everything has been completed successfully
+            return true;
+        }
+        
+        //a public method that can be called to remove an element from an NDO_ARRAY
+        public static bool NDOArrayDeleteItem(Netbasic_Dynamic_Object ndoHandle, int index)
+        {
+
+            //we begin a try/catch block
+            try
+            {
+
+                //we remove the element from the ndoHandle NDO_ARRAY given index - 1
+                ndoHandle.DynamicObject.RemoveAt(index - 1);
+            }
+            catch (Exception e)
+            {
+
+                //if there is an issue, we want to display and error message and return false
+                Console.WriteLine(e.Message);
+
+                return false;
+            }
+
+            //because everything went smoothly, we return true
+            return true;
+        }
     }
 }

@@ -16,14 +16,12 @@ namespace Netbasic_Dynamic_Object
 
             Netbasic_Dynamic_Object_Controller.NDOCreate("NDO_ARRAY", out testObject);
 
-            testObject.DynamicObject.Add(new KeyValuePair<string, object>("UDO_STRING", "PENIS"));
-            testObject.DynamicObject.Add(new KeyValuePair<string, object>("UDO_NUMBER", 7));
-            testObject.DynamicObject.Add(new KeyValuePair<string, object>("UDO_ARRAY", new object[] { "test", "hello" }));
+            Netbasic_Dynamic_Object_Controller.NDOArrayAppendItem(testObject, "test");
+            Netbasic_Dynamic_Object_Controller.NDOArrayAppendItem(testObject, true);
+            Netbasic_Dynamic_Object_Controller.NDOArrayAppendItem(testObject, 44.5);
+            Netbasic_Dynamic_Object_Controller.NDOArrayAppendItem(testObject, new List<object>() { "test", "4" });
 
-            object value;
-            string type;
-
-            Netbasic_Dynamic_Object_Controller.NDOArrayGetItem(testObject, 2, out value, out type);
+            Netbasic_Dynamic_Object_Controller.NDOArrayDeleteItem(testObject, 5);
 
             Console.WriteLine();
         }
