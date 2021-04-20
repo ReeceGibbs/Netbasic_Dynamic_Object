@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Dynamic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Netbasic_Dynamic_Object
 {
@@ -20,7 +16,7 @@ namespace Netbasic_Dynamic_Object
         public IDictionary<string, object> DynamicObjectProperties { get; set; }
 
         //we create a property that will track the current index of the property we are referencing in an iteration
-        public int currentPropertyIndex { get; set; }
+        public int currentIndex { get; set; }
 
         //our Netbasic_Dynamic_Object default constructor
         public Netbasic_Dynamic_Object()
@@ -56,8 +52,8 @@ namespace Netbasic_Dynamic_Object
                     //we set our DynamicObjectType
                     DynamicObjectType = "NDO_ARRAY";
 
-                    //we also initialize our currentPropertyIndex for iterative functionality
-                    currentPropertyIndex = 0;
+                    //we also initialize our currentIndex for iterative functionality
+                    currentIndex = 0;
                     break;
 
                 //we define the case where the type is "NDO_TRUE"
@@ -113,8 +109,8 @@ namespace Netbasic_Dynamic_Object
             //we initalize our DynamicObjectProperties as our DynamicObject property cast to a dictionary interface so that we can implement reflection-like adding and removing of properties
             DynamicObjectProperties = (IDictionary<string, object>)DynamicObject;
 
-            //we initalize our currentPropertyIndex to 0
-            currentPropertyIndex = 0;
+            //we initalize our currentIndex to 0
+            currentIndex = 0;
         }
     }
 }

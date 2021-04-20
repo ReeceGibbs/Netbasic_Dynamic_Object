@@ -1,10 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Dynamic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Netbasic_Dynamic_Object
 {
@@ -371,7 +368,7 @@ namespace Netbasic_Dynamic_Object
             return true;
         }
 
-        //a public method that can be called to return the value in a property list given the currentPropertyIndex prop of our dynamic object
+        //a public method that can be called to return the value in a property list given the currentIndex prop of our dynamic object
         public static bool NDOGetNextProperty(Netbasic_Dynamic_Object ndoHandle, out string propName, out object propValue, out string propType)
         {
 
@@ -379,11 +376,11 @@ namespace Netbasic_Dynamic_Object
             try
             {
 
-                //we set our propName to the key of our property given the currentPropertyIndex property
-                propName = ndoHandle.DynamicObjectProperties.ElementAt(ndoHandle.currentPropertyIndex).Key;
+                //we set our propName to the key of our property given the currentIndex property
+                propName = ndoHandle.DynamicObjectProperties.ElementAt(ndoHandle.currentIndex).Key;
 
-                //we set our propValue to the valur of our property given the currentPropertyIndex property
-                KeyValuePair<string, object> propKeyValuePair = (KeyValuePair<string, object>)ndoHandle.DynamicObjectProperties.ElementAt(ndoHandle.currentPropertyIndex).Value;
+                //we set our propValue to the valur of our property given the currentIndex property
+                KeyValuePair<string, object> propKeyValuePair = (KeyValuePair<string, object>)ndoHandle.DynamicObjectProperties.ElementAt(ndoHandle.currentIndex).Value;
 
                 //we set our propType to the key of our key value pair
                 propType = propKeyValuePair.Key;
@@ -391,13 +388,13 @@ namespace Netbasic_Dynamic_Object
                 //we set our propValue to the value of our key value pair
                 propValue = propKeyValuePair.Value;
 
-                //we increment our currentPropertyIndex
-                ndoHandle.currentPropertyIndex++;
+                //we increment our currentIndex
+                ndoHandle.currentIndex++;
             }
             catch (ArgumentOutOfRangeException e)
             {
 
-                //if we are referencing an element out of range then we want to let display an error message, set the currentPropertyIndex back to zero and return false
+                //if we are referencing an element out of range then we want to let display an error message, set the currentIndex back to zero and return false
                 Console.WriteLine(e.Message);
 
                 propName = "";
@@ -406,7 +403,7 @@ namespace Netbasic_Dynamic_Object
 
                 propType = "";
 
-                ndoHandle.currentPropertyIndex = 0;
+                ndoHandle.currentIndex = 0;
 
                 return false;
             }
@@ -484,6 +481,52 @@ namespace Netbasic_Dynamic_Object
             return true;
         }
 
+        //a public method that can be called to set the value of an element in an NDO_ARRAY
+        public static bool NDOArraySetItem(Netbasic_Dynamic_Object ndoHandle, int index, object value)
+        {
+
+            //we begin a try/catch
+            try
+            {
+                
+                //we check to see if the index is greater than the size of the NDO_ARRAY
+                if (index > ndoHandle.DynamicObject.Count)
+                {
+
+                    //we initialize an int with our padding size
+                    int padding = (index - 1) - ndoHandle.DynamicObject.Count;
+
+                    //we loop from 0 to the padding size we calculate
+                    for (int i = 0; i < padding; i++)
+                    {
+
+                        //we call our append method to add NDO_NULLS to the NDO_ARRAY
+                        NDOArrayAppendItem(ndoHandle, null);
+                    }
+
+                    //now we append our value to end of our NDO_ARRAY
+                    NDOArrayAppendItem(ndoHandle, value);
+                }
+                else
+                {
+
+                    //if the index is less than the count of the NDO_ARRAY then we want to set the value at the index to the new value passed here
+                    ndoHandle.DynamicObject[index - 1] = new KeyValuePair<string, object>(GetNDODataType(value), value);
+                }
+            }
+            catch (Exception e)
+            {
+
+                //if for some reason we can't set the value we want to display an error message and return false
+                Console.WriteLine(e.Message);
+
+                return false;
+            }
+
+            //if everything goes smoothly, we want to return true
+            return true;
+        }
+
         //a public method that can be called to get an item in a NDO_ARRAY given the index
         public static bool NDOArrayGetItem(Netbasic_Dynamic_Object ndoHandle, int index, out object value, out string type)
         {
@@ -515,6 +558,103 @@ namespace Netbasic_Dynamic_Object
             }
 
             //since the element was set successfully, we return true
+            return true;
+        }
+
+        //a public method that can be called to insert an element into an NDO_ARRAY
+        public static bool NDOArrayInsertItem(Netbasic_Dynamic_Object ndoHandle, int index, object value)
+        {
+
+            //we begin a try/catch
+            try
+            {
+
+                //we check to see if the index is greater than the size of the NDO_ARRAY
+                if (index > ndoHandle.DynamicObject.Count)
+                {
+
+                    //we initialize an int with our padding size
+                    int padding = (index - 1) - ndoHandle.DynamicObject.Count;
+
+                    //we loop from 0 to the padding size we calculate
+                    for (int i = 0; i < padding; i++)
+                    {
+
+                        //we call our append method to add NDO_NULLS to the NDO_ARRAY
+                        NDOArrayAppendItem(ndoHandle, null);
+                    }
+
+                    //now we append our value to end of our NDO_ARRAY
+                    NDOArrayAppendItem(ndoHandle, value);
+                }
+                else
+                {
+
+                    //if the index is less than the count of the NDO_ARRAY then we want to insert the value at the index passed to this method
+                    ndoHandle.DynamicObject.Insert(index - 1, new KeyValuePair<string, object>(GetNDODataType(value), value));
+                }
+            }
+            catch (Exception e)
+            {
+
+                //if for some reason we can't set the value we want to display an error message and return false
+                Console.WriteLine(e.Message);
+
+                return false;
+            }
+
+            //if everything goes smoothly, we want to return true
+            return true;
+        }
+
+        //a public method that can be called to get the next available element in an NDO_ARRAY based on the currentIndex prop
+        public static bool NDOArrayGetNextItem(Netbasic_Dynamic_Object ndoHandle, out object value, out string type)
+        {
+
+            //we begin a try/catch block
+            try
+            {
+
+                //we set our value to the value of our NDO_ARRAY element given the currentIndex property
+                KeyValuePair<string, object> elementKeyValuePair = (KeyValuePair<string, object>)ndoHandle.DynamicObject[ndoHandle.currentIndex];
+
+                //we set our type to the key of our key value pair
+                type = elementKeyValuePair.Key;
+
+                //we set our value to the value of our key value pair
+                value = elementKeyValuePair.Value;
+
+                //we increment our currentIndex
+                ndoHandle.currentIndex++;
+            }
+            catch (ArgumentOutOfRangeException e)
+            {
+
+                //if we are referencing an element out of range then we want to let display an error message, set the currentIndex back to zero and return false
+                Console.WriteLine(e.Message);
+
+                value = new object();
+
+                type = "";
+
+                ndoHandle.currentIndex = 0;
+
+                return false;
+            }
+            catch (Exception e)
+            {
+
+                //if there are any other issues, then we want to display an error message and return false
+                Console.WriteLine(e.Message);
+
+                value = new object();
+
+                type = "";
+
+                return false;
+            }
+
+            //because everything has completed successfully, we return true
             return true;
         }
 
@@ -563,6 +703,17 @@ namespace Netbasic_Dynamic_Object
             }
 
             //because everything went smoothly, we return true
+            return true;
+        }
+
+        //a public method that can be called to clone a Netbasic_Dynamic_Object
+        public static bool NDOClone(Netbasic_Dynamic_Object ndoHandle, out Netbasic_Dynamic_Object newNdoHandle)
+        {
+
+            //we set the newNdoHandle to the ndoHandle
+            newNdoHandle = ndoHandle;
+
+            //we return true
             return true;
         }
     }
