@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\bin\Debug\Netbasic_Dynamic_Object.pdb
 C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\obj\Debug\Netbasic_Dynamic_Object.csprojAssemblyReference.cache
 C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\obj\Debug\Netbasic_Dynamic_Object.csproj.CoreCompileInputs.cache
@@ -8,3 +9,25 @@ C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\obj\Debug\Netbasic_Dynamic_
 C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\bin\Debug\Netbasic_Dynamic_Object.dll.config
 C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\bin\Debug\Netbasic_Dynamic_Object.dll
 C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\obj\Debug\Netbasic_Dynamic_Object.dll
+=======
+C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\bin\Debug\Netbasic_Dynamic_Object.pdb
+C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\obj\Debug\Netbasic_Dynamic_Object.csprojAssemblyReference.cache
+C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\obj\Debug\Netbasic_Dynamic_Object.csproj.CoreCompileInputs.cache
+C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\obj\Debug\Netbasic_Dynamic_Object.pdb
+C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\bin\Debug\Newtonsoft.Json.dll
+C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\bin\Debug\Newtonsoft.Json.xml
+C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\obj\Debug\Netbasic_Dynamic_Object.csproj.CopyComplete
+C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\bin\Debug\Netbasic_Dynamic_Object.dll.config
+C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\bin\Debug\Netbasic_Dynamic_Object.dll
+C:\Users\rgibbs\source\repos\Netbasic_Dynamic_Object\obj\Debug\Netbasic_Dynamic_Object.dll
+C:\Users\rgibbs\source\repos\MVON4\MVON4\Netbasic_Dynamic_Object\bin\Debug\Netbasic_Dynamic_Object.dll.config
+C:\Users\rgibbs\source\repos\MVON4\MVON4\Netbasic_Dynamic_Object\bin\Debug\Netbasic_Dynamic_Object.dll
+C:\Users\rgibbs\source\repos\MVON4\MVON4\Netbasic_Dynamic_Object\bin\Debug\Netbasic_Dynamic_Object.pdb
+C:\Users\rgibbs\source\repos\MVON4\MVON4\Netbasic_Dynamic_Object\bin\Debug\Newtonsoft.Json.dll
+C:\Users\rgibbs\source\repos\MVON4\MVON4\Netbasic_Dynamic_Object\bin\Debug\Newtonsoft.Json.xml
+C:\Users\rgibbs\source\repos\MVON4\MVON4\Netbasic_Dynamic_Object\obj\Debug\Netbasic_Dynamic_Object.csproj.CoreCompileInputs.cache
+C:\Users\rgibbs\source\repos\MVON4\MVON4\Netbasic_Dynamic_Object\obj\Debug\Netbasic_Dynamic_Object.csproj.CopyComplete
+C:\Users\rgibbs\source\repos\MVON4\MVON4\Netbasic_Dynamic_Object\obj\Debug\Netbasic_Dynamic_Object.dll
+C:\Users\rgibbs\source\repos\MVON4\MVON4\Netbasic_Dynamic_Object\obj\Debug\Netbasic_Dynamic_Object.pdb
+C:\Users\rgibbs\source\repos\MVON4\MVON4\Netbasic_Dynamic_Object\obj\Debug\Netbasic_Dynamic_Object.csprojAssemblyReference.cache
+>>>>>>> cd1f19a510227db82206da930c71da8cd3d01175
